@@ -11,20 +11,24 @@
     <nav role="navigation" id="nav-bar">
         <a id="nav-match" href="go-to-match-page">
             <div class="match-list">
-                <img scr="puzzle-piece-img" class="puzzle-piece">
-                <p class="my-matches hidden">My Matches</p>
+                <div class="puzzle-piece"></div>
+                <div class="my-matches">
+                    <p class="my-matches-words">My Matches</p>
+                </div>
             </div>
         </a>
         <a id="nav-home" href="go-to-home">
             <div class="home-icon"></div>
         </a>
     </nav>
-    <div id="match-page">
+    <div id="match-page" class="">
         <ul id="added-matches">
             <li class="match">
-                <div class="song-artwork"></div>
+                <div class="art-container">
+                    <img src="go-to-artwork-url" class="song-artwork">
+                </div>
                 <div class="match-name-artist">
-                    <p class="match-text">Song Name and Artist</p>
+                    <p class="matched-text">Song Name and Artist</p>
                 </div>
                 <div class="delete-from-matches"></div>
             </li>
@@ -43,23 +47,25 @@
                 <button type="submit">Find</button>
             </div>
         </form>
-        <ul id="results">
-            <li class="search-result">
-                <div class="playback-line">
-                    <div class="add-to-matches"></div>
-                    <div class="song-name-artist">
-                        <p class="search-text">Song Name and Artist</p>
+        <div id="results-container">
+            <ul id="results">
+                <li class="search-result">
+                    <div class="playback-line">
+                        <div class="add-to-matches"></div>
+                        <div class="song-name-artist">
+                            <p class="search-text">Song Name and Artist</p>
+                        </div>
+                        <div class="play-button"></div>
+                        <div class="pause-button"></div>
+                        <div class="stop-button"></div>
                     </div>
-                    <div class="play-button"></div>
-                    <div class="pause-button"></div>
-                    <div class="stop-button"></div>
-                </div>
-                <div class="lyric-box">
-                    <pre class="lyrics">Full lyrics</pre>
-                </div>
+                    <div class="lyric-box">
+                        <pre class="lyrics">Full lyrics</pre>
+                    </div>
 
-            </li>
-        </ul>
+                </li>
+            </ul>
+        </div>
     </main>
     <script src="https://code.jquery.com/jquery-3.5.1.js"
     integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="

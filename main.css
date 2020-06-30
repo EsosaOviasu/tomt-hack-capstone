@@ -1,0 +1,156 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: grey;
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+#nav-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(128, 128, 128, 0);
+    padding-left: 2vw;
+    padding-right: 2vw;
+}
+
+
+.match-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#hero {
+    margin-top: 5vw;
+    margin-bottom: 5vw;
+}
+
+.puzzle-piece {
+    /* https://cdn3.iconfinder.com/data/icons/solidix-toys/128/toy_children-21-512.png */
+    background-color: white;
+    width: 4vw;
+    height: 4vw;
+}
+
+.home-icon {
+    background-color: white;
+    width: 4vw;
+    height: 4vw;
+}
+
+.add-to-matches {
+    background-color: white;
+    width: 4vw;
+    height: 4vw;
+}
+
+.play-button {
+    background-color: white;
+    width: 4vw;
+    height: 4vw;
+}
+
+.pause-button {
+    background-color: white;
+    width: 4vw;
+    height: 4vw;
+}
+
+.stop-button {
+    background-color: white;
+    width: 4vw;
+    height: 4vw;
+}
+
+.delete-from-matches {
+    background-color: white;
+    width: 4vw;
+    height: 4vw;
+}
+
+.art-container {
+    background-color: white;
+    width: 20vw;
+    height: 20vw;
+}
+
+.match-name-artist {
+    text-align: left;
+    font-size: 5vw;
+}
+
+h1 {
+    font-size: 12vw;
+}
+
+h2 {
+    font-size: 2vw;
+}
+
+.my-matches-words {
+    font-size: 1.2vw;
+}
+
+#nav-match:link {
+    text-decoration: none;
+}
+
+#results-container {
+    width: 100%;
+    padding-bottom: 8vw;
+}
+
+#match-page {
+    width: 100%;
+}
+
+.match {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.playback-line {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 6vw;
+}
+
+.song-name-artist {
+    white-space: nowrap;
+    overflow: auto;
+}
+
+.search-text {
+    border: 1px solid black;
+    width: 60vw;
+    font-size: 3vw;
+    text-align: left;
+    padding-left: 1vw;
+}
+
+.lyrics {
+    font-size: 3vw;
+    text-align: left;
+    margin-left: 13vw;
+    font-style: italic;
+}
