@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="desktop.css">
+    <title>Tip Of My Tongue</title>
+</head>
+<body>
+    <nav role="navigation" id="nav-bar">
+        <a id="nav-match" href="go-to-match-page">
+            <div class="match-list">
+                <img scr="puzzle-piece-img" class="puzzle-piece">
+                <p class="my-matches hidden">My Matches</p>
+            </div>
+        </a>
+        <a id="nav-home" href="go-to-home">
+            <div class="home-icon"></div>
+        </a>
+    </nav>
+    <div id="match-page">
+        <ul id="added-matches">
+            <li class="match">
+                <div class="song-artwork"></div>
+                <div class="match-name-artist">
+                    <p class="match-text">Song Name and Artist</p>
+                </div>
+                <div class="delete-from-matches"></div>
+            </li>
+        </ul>
+    </div>
+    <header id="hero">
+        <h1>TOMT</h1>
+        <h2>Search the lyric. Find the song.</h2>
+    </header>
+    <main>
+        <form id="tomt-search">
+            <div>
+                <input type="text" placeholder="Enter song lyrics here" required>
+            </div>
+            <div>
+                <button type="submit">Find</button>
+            </div>
+        </form>
+        <ul id="results">
+            <li class="search-result">
+                <div class="playback-line">
+                    <div class="add-to-matches"></div>
+                    <div class="song-name-artist">
+                        <p class="search-text">Song Name and Artist</p>
+                    </div>
+                    <div class="play-button"></div>
+                    <div class="pause-button"></div>
+                    <div class="stop-button"></div>
+                </div>
+                <div class="lyric-box">
+                    <pre class="lyrics">Full lyrics</pre>
+                </div>
+
+            </li>
+        </ul>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+    integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+     crossorigin="anonymous"></script>
+    <script src="index.js"></script>
+</body>
+</html>
