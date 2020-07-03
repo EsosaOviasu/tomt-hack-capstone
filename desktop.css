@@ -33,20 +33,6 @@
     height: 3vw;
 }
 
-.play-button {
-    width: 3vw;
-    height: 3vw;
-}
-
-.pause-button {
-    width: 3vw;
-    height: 3vw;
-}
-
-.stop-button {
-    width: 3vw;
-    height: 3vw;
-}
 
 .delete-from-matches {
     width: 3vw;
@@ -68,7 +54,7 @@ h2 {
 }
 
 .search-text {
-    width: 45vw;
+    width: 65vw;
     font-size: 1.5vw;
 }
 

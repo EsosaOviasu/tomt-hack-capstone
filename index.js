@@ -1,0 +1,141 @@
+const geniusAccessToken = 'ssqCR4lyLZghKwRSwv9eXNYOGZoOSycPCKrN2TzOIcEmZavM1AlZIdHTjORdCzp3'
+const geniusSearchUrl = 'https://api.genius.com/search'
+
+const apiseeds_apikey = '5xgE0Em4EurKgNXoeJ28YseD4UwgQKqKfBgAhWfqpMUO16iCPgiggfnZ1US54LKJ'
+const apiseedSearchUrl = 'https://orion.apiseeds.com/api/music/lyric/'
+
+
+$(function toggleHomeButton() {
+    $('#nav-home').click(function(event) {
+        event.preventDefault();
+        $('#match-page').addClass('hidden');
+        $('#results').addClass('hidden');
+    });
+});
+
+$(function toggleMatchPage() {
+    $('.match-list').click(function(event) {
+        event.preventDefault();
+        $('#match-page').toggleClass('hidden');
+    });
+
+});
+
+$(function deleteMatches() {
+    $('#added-matches').on('click', '.delete-from-matches', function(event) {
+        $(this).parent().remove();
+    });
+});
+
+function matchItem(mtxt,murl) {
+    return `<li class="match">
+                <div class="art-container">
+                    <img src="${murl}" class="song-artwork">
+                </div>
+                <div class="match-name-artist">
+                    <p class="matched-text">${mtxt}</p>
+                </div>
+                <div class="delete-from-matches"></div>
+            </li>`
+}
+
+function addMatches(resJson) {
+    $('#added-matches').empty();
+    for (let m=0; m<resJson.response.hits.length & m<10; m++) {
+    $('#results').on('click', `.atm${m}`, function(event) {
+        $('#added-matches').append(matchItem(resJson.response.hits[m].result.full_title, resJson.response.hits[m].result.song_art_image_thumbnail_url));
+        $('#added-matches').removeClass('hidden');
+    });
+    };
+};
+
+//SECOND FAILED FETCH//
+
+function getLyrics(geniusJsonHits) {
+    const apiArtistUrl = geniusJsonHits.result.primary_artist.url;
+    const artist = apiArtistUrl.split('sts/').pop().replace(/-/g," ");
+    const track = geniusJsonHits.result.title;
+    const uriArtist = encodeURIComponent(artist);
+    const uriTrack = encodeURIComponent(track);
+     
+    const apiseedUrl = apiseedSearchUrl+`${uriArtist}/${uriTrack}?apikey=`+apiseeds_apikey;
+
+    console.log(apiseedUrl);
+
+    fetch(apiseedUrl)
+    .then(response => {
+        if (response.ok) {
+            return response.json();
+        };
+        throw new Error(response.statusText);
+    })
+    .then(responseJson => formatLyrics(responseJson))
+    .catch(error => alert(`There seems to be a problem redux: ${error.message}`));
+};
+
+
+function formatLyrics(apiJson) {
+    const someString = apiJson.result.track.text;
+    return someString.replace(/\n/g,"<br>");
+    console.log(someString.replace(/\n/g,"<br>"));
+};
+
+
+function displaySearchResults(resJson) {
+    $('#results').empty();
+    for (let i=0; i<resJson.response.hits.length & i<10; i++) {
+        $('#results').append(`
+            <li class="search-result">
+                <div class="playback-line">
+                    <div class="add-to-matches atm${i}"></div>
+                    <div class="song-name-artist">
+                        <p class="search-text" id="st${i}">"${resJson.response.hits[i].result.full_title}</p>
+                    </div>
+                </div>
+                <div class="lyric-box">
+                    <pre class="lyrics">${getLyrics(resJson.response.hits[i])}</pre>
+                </div>
+            </li>
+        `);
+    };
+    $('#results').removeClass('hidden');
+};
+
+function formatParameters(params) {
+    const queryItems = Object.keys(params).map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`);
+    return queryItems.join('&');
+};
+
+//FIRST FETCH//
+
+function getSearchResults(geniusQuery) {
+    const parameters = {
+        q: geniusQuery,
+        page: 1,
+        per_page: 20,
+        access_token: geniusAccessToken,
+    };
+
+    const geniusQueryString = formatParameters(parameters);
+    const url = geniusSearchUrl+'?'+geniusQueryString;
+
+    console.log(url);
+
+    fetch(url)
+    .then(response => {
+        if (response.ok) {
+            return response.json();
+        };
+        throw new Error(repsonse.statusText);
+    })
+    .then(responseJson => {displaySearchResults(responseJson); addMatches(responseJson)})
+    .catch(error => alert(`There seems to be a problem: ${error.message}`));
+};
+
+$(function handleSearch() {
+    $('#find').click(function(event) {
+        event.preventDefault();
+        const geniusQuery = $('input').val();
+        getSearchResults(geniusQuery);
+    });
+});

@@ -22,7 +22,7 @@
         </a>
     </nav>
     <div id="match-page" class="">
-        <ul id="added-matches">
+        <ul id="added-matches" class="hidden">
             <li class="match">
                 <div class="art-container">
                     <img src="go-to-artwork-url" class="song-artwork">
@@ -34,35 +34,31 @@
             </li>
         </ul>
     </div>
-    <header id="hero">
-        <h1>TOMT</h1>
-        <h2>Search the lyric. Find the song.</h2>
-    </header>
     <main>
+        <header id="hero">
+            <h1>TOMT</h1>
+            <h2>Search the lyric. Find the song.</h2>
+        </header>
         <form id="tomt-search">
             <div>
                 <input type="text" placeholder="Enter song lyrics here" required>
             </div>
             <div>
-                <button type="submit">Find</button>
+                <button id="find" type="submit">Find</button>
             </div>
         </form>
         <div id="results-container">
-            <ul id="results">
+            <ul id="results" class="hidden">
                 <li class="search-result">
                     <div class="playback-line">
                         <div class="add-to-matches"></div>
                         <div class="song-name-artist">
                             <p class="search-text">Song Name and Artist</p>
                         </div>
-                        <div class="play-button"></div>
-                        <div class="pause-button"></div>
-                        <div class="stop-button"></div>
                     </div>
                     <div class="lyric-box">
                         <pre class="lyrics">Full lyrics</pre>
                     </div>
-
                 </li>
             </ul>
         </div>
