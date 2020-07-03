@@ -33,33 +33,47 @@ body {
     align-items: center;
 }
 
+.match {
+    margin-top: 2vw;
+    margin-bottom: 2vw;
+}
+
 #hero {
     margin-top: 5vw;
     margin-bottom: 5vw;
 }
 
 .puzzle-piece {
-    /* https://cdn3.iconfinder.com/data/icons/solidix-toys/128/toy_children-21-512.png */
-    background-color: white;
+    background-image: url('https://freesvg.org/img/Two-Women-Two-Puzzle-Pieces-Silhouette.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-y: 70%;
     width: 4vw;
     height: 4vw;
 }
 
 .home-icon {
-    background-color: white;
+    background-image: url('https://freesvg.org/img/dynnamitt_home.png');
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position-y: 50%;
     width: 4vw;
     height: 4vw;
 }
 
 .add-to-matches {
-    background-color: white;
+    background-image: url('https://freesvg.org/img/1464710523.png');
+    background-size: 70%;
+    background-repeat: no-repeat;
     width: 4vw;
     height: 4vw;
 }
 
 
 .delete-from-matches {
-    background-color: white;
+    background-image: url('https://freesvg.org/img/dwcheckno.png');
+    background-size: 80%;
+    background-repeat: no-repeat;
     width: 4vw;
     height: 4vw;
 }
@@ -70,6 +84,13 @@ body {
     height: 20vw;
 }
 
+.lyric-link {
+    background-color: white;
+    font-size: 2vw;
+    width: 16vw;
+    height: 3vw;
+}
+
 .song-artwork {
     max-width: 100%;
     max-height: 100%;
@@ -77,8 +98,8 @@ body {
 
 .match-name-artist {
     text-align: left;
-    font-size: 5vw;
-    width: 40%;
+    font-size: 4vw;
+    width: 60%;
 }
 
 h1 {
@@ -103,8 +124,19 @@ h2 {
 }
 
 #match-page {
-    width: 100%;
+    width: 100vw;
+    height: 70vw;
     padding-top: 6.5vw;
+    background-color: thistle;
+    position: fixed;
+    overflow: auto;
+}
+
+#added-matches {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 .match {
@@ -132,7 +164,7 @@ ul {
 
 .search-text {
     border: 1px solid black;
-    width: 80vw;
+    width: 60vw;
     font-size: 3vw;
     text-align: left;
     padding-left: 1vw;
@@ -143,4 +175,9 @@ ul {
     text-align: left;
     margin-left: 13vw;
     font-style: italic;
+    overflow: auto;
+}
+
+.lyric-box {
+    margin-bottom: 4vw;
 }

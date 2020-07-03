@@ -18,7 +18,14 @@ $(function toggleMatchPage() {
         event.preventDefault();
         $('#match-page').toggleClass('hidden');
     });
+});
 
+$(function toggleLyricDisplay() {
+    $('#results').on('click', '.song-name-artist', function(event) {
+        $(this).parents('.search-result').find('.lyric-box').toggleClass('hidden');
+        $(this).parents('.search-result').find('.lyric-link').toggleClass('hidden');
+        notAvailable();
+    });
 });
 
 $(function deleteMatches() {
@@ -49,9 +56,9 @@ function addMatches(resJson) {
     };
 };
 
-//SECOND FAILED FETCH//
+//SECOND FETCH//
 
-function getLyrics(geniusJsonHits) {
+    function getLyrics(geniusJsonHits) {
     const apiArtistUrl = geniusJsonHits.result.primary_artist.url;
     const artist = apiArtistUrl.split('sts/').pop().replace(/-/g," ");
     const track = geniusJsonHits.result.title;
@@ -66,37 +73,64 @@ function getLyrics(geniusJsonHits) {
     .then(response => {
         if (response.ok) {
             return response.json();
-        };
-        throw new Error(response.statusText);
+        }
+        throw new Error(repsonse.statusText);
     })
-    .then(responseJson => formatLyrics(responseJson))
-    .catch(error => alert(`There seems to be a problem redux: ${error.message}`));
+    .then(responseJson => {console.log(responseJson); displayLyrics(responseJson)})
+    .catch(error => console.log('No lyric found. Try again later'));
+};
+
+function displayLyrics(apiseedJson) {
+    const apiArtist = apiseedJson.result.artist.name;
+    const apiInterim = apiArtist.toLowerCase();
+    const apiArtistTight = apiInterim.replace(/-/g,"").replace(/ /g,"");
+    $('li').append(function() {
+        if (apiArtistTight === $(this).attr('id')) {
+        
+            return  `<div class="lyric-box hidden">
+                        <pre class="lyrics">${formatLyrics(apiseedJson)}</pre>
+                    </div>`
+        }
+    });
 };
 
 
 function formatLyrics(apiJson) {
     const someString = apiJson.result.track.text;
-    return someString.replace(/\n/g,"<br>");
-    console.log(someString.replace(/\n/g,"<br>"));
+    console.log('%c a colorful message', 'background: green; color: white; display: block;');
+    console.log(someString);
+    return someString;
 };
 
+function notAvailable() {
+    $('.search-result').not(':has(.lyric-box)').append(`
+        <div class="lyric-box hidden">
+            <pre class="lyrics">No lyric preview available.</pre>
+        </div>
+    `)
+    console.log(5)
+};
 
 function displaySearchResults(resJson) {
     $('#results').empty();
     for (let i=0; i<resJson.response.hits.length & i<10; i++) {
+        const artistUrl = resJson.response.hits[i].result.primary_artist.url;
+        const interim = artistUrl.toLowerCase();
+        const artist = interim.split('sts/').pop().replace(/-/g,"");
         $('#results').append(`
-            <li class="search-result">
+            <li class="search-result" id="${artist}">
                 <div class="playback-line">
                     <div class="add-to-matches atm${i}"></div>
                     <div class="song-name-artist">
                         <p class="search-text" id="st${i}">"${resJson.response.hits[i].result.full_title}</p>
                     </div>
-                </div>
-                <div class="lyric-box">
-                    <pre class="lyrics">${getLyrics(resJson.response.hits[i])}</pre>
+                    <div class="lyric-link hidden">
+                        <a href="${resJson.response.hits[i].result.url}" target="_blank">Full Lyric Page</a>
+                    </div>
                 </div>
             </li>
         `);
+        getLyrics(resJson.response.hits[i]);
     };
     $('#results').removeClass('hidden');
 };

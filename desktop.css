@@ -26,6 +26,7 @@
 
 #match-page {
     width: 40%;
+    height: 40vw;
 }
 
 .add-to-matches {
@@ -50,17 +51,22 @@ h2 {
 }
 
 .match-name-artist {
-    font-size: 2vw;
+    font-size: 1.5vw;
 }
 
 .search-text {
-    width: 65vw;
+    width: 55vw;
     font-size: 1.5vw;
 }
 
 .lyrics {
     font-size: 1.5vw;
-    margin-left: 11vw;
+    margin-left: 6vw;
+}
+
+.lyric-link {
+    font-size: 1.5vw;
+    width: 15vw;
 }
 
 .my-matches-words {
@@ -79,6 +85,4 @@ h2 {
 #tomt-search>div {
     margin-left: 1vw;
     margin-right: 1vw;
-}
-
 }
