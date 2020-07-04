@@ -5,7 +5,10 @@
 
 body {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    background-color: grey;
+    background-color: rgb(230, 232, 233);
+    background-image: url('https://i.ibb.co/C144cV7/mobilepmusicwallpaper.jpg');
+    background-size: auto;
+    background-repeat: no-repeat;
     text-align: center;
 }
 
@@ -41,6 +44,11 @@ body {
 #hero {
     margin-top: 5vw;
     margin-bottom: 5vw;
+    margin-left: auto;
+    margin-right: auto;
+    border: .2vw solid white;
+    border-radius: 2vw;
+    width: 25vw;
 }
 
 .puzzle-piece {
@@ -52,14 +60,23 @@ body {
     height: 4vw;
 }
 
+.puzzle-piece:hover {
+    cursor: pointer;
+}
+
 .home-icon {
     background-image: url('https://freesvg.org/img/dynnamitt_home.png');
     background-size: 60%;
     background-repeat: no-repeat;
-    background-position-y: 50%;
+    background-position-y: 90%;
     width: 4vw;
     height: 4vw;
 }
+
+.home-icon:hover {
+    cursor: pointer;
+}
+
 
 .add-to-matches {
     background-image: url('https://freesvg.org/img/1464710523.png');
@@ -69,6 +86,11 @@ body {
     height: 4vw;
 }
 
+.add-to-matches:hover {
+    background-size: 80%;
+    cursor: pointer;
+}
+
 
 .delete-from-matches {
     background-image: url('https://freesvg.org/img/dwcheckno.png');
@@ -76,6 +98,11 @@ body {
     background-repeat: no-repeat;
     width: 4vw;
     height: 4vw;
+}
+
+.delete-from-matches:hover {
+    background-size: 85%;
+    cursor: pointer;
 }
 
 .art-container {
@@ -89,6 +116,9 @@ body {
     font-size: 2vw;
     width: 16vw;
     height: 3vw;
+    border: 1px solid grey;
+    border-radius: 5vw;
+    box-shadow: inset 0 0 3.5px rgba(0,0,0,0.3);
 }
 
 .song-artwork {
@@ -103,15 +133,20 @@ body {
 }
 
 h1 {
-    font-size: 12vw;
+    font-family: 'Signika', sans-serif;
+    color: white;
 }
 
 h2 {
-    font-size: 2vw;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 1.5vw;
+    color: white;
 }
 
 .my-matches-words {
-    font-size: 1.2vw;
+    font-size: 1.8vw;
+    color: black;
+    text-decoration: none;
 }
 
 #nav-match:link {
@@ -123,11 +158,17 @@ h2 {
     padding-bottom: 8vw;
 }
 
+#results {
+    color: white;
+}
+
 #match-page {
-    width: 100vw;
+    width: 99vw;
     height: 70vw;
+    border: 1px solid rgba(61, 61, 61, 0.308);
+    border-radius: .5vw;
     padding-top: 6.5vw;
-    background-color: thistle;
+    background-color: rgb(226, 226, 226);
     position: fixed;
     overflow: auto;
 }
@@ -150,11 +191,32 @@ ul {
     padding-left: 0;
 }
 
+input {
+    border-radius: 1vw;
+}
+
+#find {
+    border-radius: 8vw;
+}
+
 .playback-line {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    height: 6vw;
+    margin-top: 1vw;
+}
+
+a:link {
+    color: black;
+    text-decoration: none;
+}
+
+.lyric-link:hover {
+    background-color: rgb(116, 116, 116);
+}
+
+a:visited {
+    color: black;
 }
 
 .song-name-artist {
@@ -162,22 +224,66 @@ ul {
     overflow: auto;
 }
 
+
 .search-text {
-    border: 1px solid black;
+    border: 1px solid rgba(0, 0, 0, 0.301);
+    border-radius: 0.5vw;
     width: 60vw;
     font-size: 3vw;
     text-align: left;
     padding-left: 1vw;
+    background-color: none;
+    transition-property: background-color;
+    transition-duration: 0.1s;
+    transition-timing-function: linear;
+}
+
+.search-text:hover {
+    background-color: rgb(87, 86, 86);
+    cursor: pointer;
 }
 
 .lyrics {
     font-size: 3vw;
     text-align: left;
-    margin-left: 13vw;
     font-style: italic;
     overflow: auto;
 }
 
 .lyric-box {
     margin-bottom: 4vw;
+    background-image: linear-gradient(0deg, rgba(36, 36, 36, 0), rgb(36, 36, 36));
+    margin-left: 13vw;
+    margin-right: 3vw;
+    border-radius: 0.5vw;
+}
+
+
+#secondBackground {
+    position: absolute;
+    height: 400vw;
+    width: 100vw;
+    background-image: linear-gradient(-90deg, rgba(65, 65, 65, 0.623), rgba(184, 183, 183, 0.623));
+    background-size: cover;
+}
+
+
+/*Scrollbar Styling*/
+
+::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+    background-color: rgba(238, 238, 238, 0);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(134, 134, 134, 0.5);
+    border-radius: 8px;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 3.5px rgba(0,0,0,0.3);
+	-webkit-box-shadow: inset 0 0 3.5px rgba(0,0,0,0.3);
+    background-color: rgb(170, 170, 170);
+    border-radius: 8px;
 }

@@ -1,5 +1,9 @@
 @media screen and (min-width: 700px) {
 
+body {
+    background-image: url('https://i.ibb.co/41xkqjR/desktopmusicwallpaper.jpg');
+}
+
 .my-match-words {
     display: none;
 }
@@ -47,7 +51,7 @@ h1 {
 }
 
 h2 {
-    font-size: 1.5vw;
+    font-size: 1vw;
 }
 
 .match-name-artist {
@@ -61,6 +65,9 @@ h2 {
 
 .lyrics {
     font-size: 1.5vw;
+}
+
+.lyric-box {
     margin-left: 6vw;
 }
 
@@ -70,7 +77,7 @@ h2 {
 }
 
 .my-matches-words {
-    font-size: 0.8vw;
+    font-size: 1vw;
 }
 
 #hero {

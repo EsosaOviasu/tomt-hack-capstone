@@ -13,6 +13,7 @@ $(function toggleHomeButton() {
     });
 });
 
+
 $(function toggleMatchPage() {
     $('.match-list').click(function(event) {
         event.preventDefault();
@@ -20,6 +21,14 @@ $(function toggleMatchPage() {
     });
 });
 
+//New Feature//
+$(function closeMatchPage() {
+    $('main').click(function() {
+        $('#match-page').addClass('hidden');
+    });
+});
+
+//Feature Update//
 $(function toggleLyricDisplay() {
     $('#results').on('click', '.song-name-artist', function(event) {
         $(this).parents('.search-result').find('.lyric-box').toggleClass('hidden');
@@ -27,6 +36,7 @@ $(function toggleLyricDisplay() {
         notAvailable();
     });
 });
+
 
 $(function deleteMatches() {
     $('#added-matches').on('click', '.delete-from-matches', function(event) {
@@ -122,7 +132,7 @@ function displaySearchResults(resJson) {
                 <div class="playback-line">
                     <div class="add-to-matches atm${i}"></div>
                     <div class="song-name-artist">
-                        <p class="search-text" id="st${i}">"${resJson.response.hits[i].result.full_title}</p>
+                        <p class="search-text" id="st${i}">${resJson.response.hits[i].result.full_title}</p>
                     </div>
                     <div class="lyric-link hidden">
                         <a href="${resJson.response.hits[i].result.url}" target="_blank">Full Lyric Page</a>
