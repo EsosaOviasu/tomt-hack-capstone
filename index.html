@@ -3,11 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Signika:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="desktop.css">
+    <link rel="shortcut icon" type="image/x-icon" href="waveform.ico">
     <title>Tip Of My Tongue</title>
 </head>
 <body>
+    <div id="secondBackground">
     <nav role="navigation" id="nav-bar">
         <a id="nav-match" href="go-to-match-page">
             <div class="match-list">
@@ -17,26 +20,17 @@
                 </div>
             </div>
         </a>
-        <a id="nav-home" href="go-to-home">
+        <a id="nav-home" href="">
             <div class="home-icon"></div>
         </a>
     </nav>
-    <div id="match-page" class="">
+    <div id="match-page" class="hidden">
         <ul id="added-matches" class="hidden">
-            <li class="match">
-                <div class="art-container">
-                    <img src="go-to-artwork-url" class="song-artwork">
-                </div>
-                <div class="match-name-artist">
-                    <p class="matched-text">Song Name and Artist</p>
-                </div>
-                <div class="delete-from-matches"></div>
-            </li>
         </ul>
     </div>
     <main>
         <header id="hero">
-            <h1>TOMT</h1>
+            <h1>TomT</h1>
             <h2>Search the lyric. Find the song.</h2>
         </header>
         <form id="tomt-search">
@@ -49,11 +43,14 @@
         </form>
         <div id="results-container">
             <ul id="results" class="hidden">
-                <li class="search-result">
+                <li class="search-resul">
                     <div class="playback-line">
                         <div class="add-to-matches"></div>
                         <div class="song-name-artist">
                             <p class="search-text">Song Name and Artist</p>
+                        </div>
+                        <div class="lyric-link">
+                            <a href="" target="_blank">Full Lyric Page</a>
                         </div>
                     </div>
                     <div class="lyric-box">
@@ -63,6 +60,7 @@
             </ul>
         </div>
     </main>
+    </div>
     <script src="https://code.jquery.com/jquery-3.5.1.js"
     integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
      crossorigin="anonymous"></script>
