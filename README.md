@@ -1,7 +1,7 @@
 **TomT - Tip of my Tongue**
 ------------
 
-[Live App Here](https://esosaoviasu.github.io/tomt-hack-capstone/)
+[Live App Here](https://esosaoviasu.github.io/tomt-tip-of-my-tongue/)
 
 Screenshots:
 
