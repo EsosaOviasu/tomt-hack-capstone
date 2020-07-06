@@ -11,7 +11,7 @@
 </head>
 <body>
     <div id="secondBackground">
-    <nav role="navigation" id="nav-bar">
+    <nav id="nav-bar">
         <a id="nav-match" href="go-to-match-page">
             <div class="match-list">
                 <div class="puzzle-piece"></div>
@@ -35,7 +35,8 @@
         </header>
         <form id="tomt-search">
             <div>
-                <input type="text" placeholder="Enter song lyrics here" required>
+                <label for="lyric-search-field">Lyrics:</label>
+                <input type="text" id="lyric-search-field" placeholder="Enter song lyrics here" required>
             </div>
             <div>
                 <button id="find" type="submit">Find</button>
