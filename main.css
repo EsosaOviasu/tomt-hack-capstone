@@ -106,7 +106,7 @@ body {
 }
 
 .art-container {
-    background-color: white;
+    background-color: none;
     width: 20vw;
     height: 20vw;
 }
@@ -182,7 +182,7 @@ h2 {
 
 .match {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
 }
 
