@@ -31,9 +31,14 @@ $(function closeMatchPage() {
 //Feature Update//
 $(function toggleLyricDisplay() {
     $('#results').on('click', '.song-name-artist', function(event) {
-        $(this).parents('.search-result').find('.lyric-box').toggleClass('hidden');
-        $(this).parents('.search-result').find('.lyric-link').toggleClass('hidden');
-        notAvailable();
+        const targetLyrics = $(this)
+        const otherLyrics = $('.song-name-artist').not(targetLyrics)
+
+        targetLyrics.parents('.search-result').find('.lyric-box').toggleClass('hidden');
+        targetLyrics.parents('.search-result').find('.lyric-link').toggleClass('hidden');
+        otherLyrics.parents('.search-result').find('.lyric-box').addClass('hidden');
+        otherLyrics.parents('.search-result').find('.lyric-link').addClass('hidden');
+        console.log('I clicked it');
     });
 });
 
@@ -113,12 +118,14 @@ function formatLyrics(apiJson) {
 };
 
 function notAvailable() {
-    $('.search-result').not(':has(.lyric-box)').append(`
-        <div class="lyric-box hidden">
-            <pre class="lyrics">No lyric preview available.</pre>
-        </div>
-    `)
-    console.log(5)
+    setTimeout(function() {
+        $('.search-result').not(':has(.lyric-box)').append(`
+            <div class="lyric-box hidden">
+                <pre class="lyrics">No lyric preview available.</pre>
+            </div>
+        `)
+        console.log(5);
+    }, 3000);
 };
 
 function displaySearchResults(resJson) {
@@ -181,5 +188,6 @@ $(function handleSearch() {
         event.preventDefault();
         const geniusQuery = $('input').val();
         getSearchResults(geniusQuery);
+        notAvailable();
     });
 });
