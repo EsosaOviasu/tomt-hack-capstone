@@ -191,7 +191,7 @@ ul {
     padding-left: 0;
 }
 
-div>label {
+#tomt-search label {
     font-size: 1.5vw;
     color: white;
 }
